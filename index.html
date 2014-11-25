@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Shopping List App | Fiyin Adebayo</title>
+  <link rel="shortcut icon" href="images/shop_cart_icon.png" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+
+<body>
+  <!-- div container to hold the app section -->
+  <div id="main">
+    <header>
+      <h1>My Shopping List App</h1>
+    </header>
+  
+    <div id="createList"> <!-- Add amount and quantity -->
+      <label for="new_item">Add new items to your shopping list...</label><br /><br />
+      <input type="text" placeholder="Enter a new item..." id="newItem" /><br /><br />
+      <input type="text" placeholder="quantity" id="quantity" /><br /><br />
+      <input type="text" placeholder="cost" id="cost" /><br /><br />
+      <button id="listBtn">Add Item</button>
+    </div>
+
+    <div id="items">
+      <h3>Items to buy</h3> <!--change to capital letters. All headers -->
+      <ol id="itemsList"> <!--incomplete tasks-->
+        <li><input type="checkbox"> <label>Bread</label> <label>3</label> <label>N600</label> <!-- <input type="text"> --> <button class="edit">Edit</button> <button class="delete">Delete</button></li><br /><br />
+        <li class="editMode"> <input type="checkbox"> <label>Perfume</label> <label>2</label> <label>N3000</label> <!-- <input type="text" value="Perfume"> --> <button class="edit">Edit</button> <button class="delete">Delete</button></li><br /><br />
+      </ol>
+    </div>
+
+    <div id="checkedOff">
+      <h3>Checked off items</h3>
+      <ol id="checkedOffItems"> <!-- completed tasks -->
+        <li><input type="checkbox" checked> <label>Samsung camera</label> <input type="text"> <button class="edit">Edit</button> <button class="delete">Delete</button></li><br /><br />
+      </ol>
+    </div>
+
+    <br class="clearfloat"/>
+    <footer>
+      <p>Shopping List App | Fiyin Adebayo &copy; 2014</p>
+    </footer>
+  </div>
+
+  <script type="text/javascript" src="script/shoppinglist.js"></script>
+  
+</body>
+</html>
