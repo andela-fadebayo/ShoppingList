@@ -1,0 +1,92 @@
+/*CSS for Andela Project 4 - my Shopping List App with JavaScript
+Fiyinfoluwa Adebayo
+21-25th November, 2014*/
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eee;
+  text-align: center;
+  font-family: kalinga, 'sans serif';
+  font-size: .75em;
+}
+
+#main {
+  margin: 0 auto;
+  padding: 10px;
+  width: 80%;
+  background-color: #fff;
+  text-align: left;
+}
+
+header {
+  text-align: center;
+  /*background-color: #ccc;*/
+  padding: 0 10px;
+}
+
+header h1 {
+  margin: 0 auto 40px;
+  padding: 10px 0;
+}
+
+#createList {
+  /*left div positioning*/
+  float: left;
+  width: 30%;
+  padding: 15px 0;
+  /*background-color: #ddd;*/
+}
+
+#items {
+  /*center div positioning*/
+  margin: 0 26% 0 31.5%;
+  border-right: 1px dotted #000;
+  border-left: 1px dotted #000;
+  /*background-color: #ffdddd;*/
+}
+
+#items h3 {
+  text-align: center;
+}
+
+#checkedOff {
+  /*right div positioning*/
+  float: right;
+  margin-top: -14%;
+  width: 25%;
+  padding: 15px 0;
+  /*background-color: #ddd;*/
+}
+
+#checkedOff ol li label {
+  text-decoration: line-through;
+}
+
+#createList label,
+#createList input,
+#createList button,
+#checkedOff h3,
+#checkedOff ol {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+footer {
+  padding: 0 10px;
+  /*background-color: skyblue;*/
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  padding: 10px 0;
+}
+
+.clearfloat {
+  clear:both;
+  height:0;
+  font-size: 1px;
+  line-height: 0px;
+}
