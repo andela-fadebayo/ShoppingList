@@ -58,9 +58,9 @@ var createNewItem = function (item1, item2, item3) {
     listItem.appendChild(labelItem);
     listItem.appendChild(labelQuantity);
     listItem.appendChild(labelCost);
-    listItem.appendChild(editInput);
-    listItem.appendChild(editQuantity);
-    listItem.appendChild(editCost);
+    // listItem.appendChild(editInput);
+    // listItem.appendChild(editQuantity);
+    // listItem.appendChild(editCost);
     listItem.appendChild(editButton);
     listItem.appendChild(deleteButton);
   return listItem;
@@ -71,7 +71,7 @@ var addItem = function() {
   console.log("Add item...");
   //when the button is pressed
   //create new list item with the text from #newItem;
-    var listItem = createNewItem(newItem, itemQuantity, itemCost); 
+    var listItem = createNewItem(newItem.value, itemQuantity.value, itemCost.value); 
 
     //Append listItem to itemsListHolder
     itemsListHolder.appendChild(listItem);
@@ -80,7 +80,13 @@ var addItem = function() {
 //Edit an existing item
 var editItem = function() {
   console.log("Edit item...");
-  //when the edit button is pressed
+
+  var listItem = this.parentNode;
+
+  var editInput = listItem.querySelector("input[type=text]");
+  var labelItem = listItem.querySelector("label");
+  var labelQuantity = listItem.querySelector("label");
+  var labelCost = listItem.querySelector("label");
     //if the class of the parent is .editMode
       //switch from .editMode
       //label text become the input's value
