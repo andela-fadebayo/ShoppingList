@@ -51,6 +51,22 @@ header h1 {
   text-align: center;
 }
 
+/*Edit items*/
+ol li input[type=text] {
+  display: none;
+}
+
+ol li.editMode input[type="text"] {
+  display: block;
+}
+
+ol li.editMode label {
+  display: none;
+}
+
+
+
+
 #checkedOff {
   /*right div positioning*/
   float: right;
