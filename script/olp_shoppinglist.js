@@ -83,9 +83,9 @@ var ShoppingList = {
 
               var listItem = this.parentNode;
 
-              var editItemInput = listItem.querySelector(".itemA");
-              var editQuantityInput = listItem.querySelector("itemB");
-              var editCostInput = listItem.querySelector("itemC");
+              var editItemInput = listItem.querySelector("input[type=text]");
+              var editQuantityInput = listItem.querySelector("input[type=text]");
+              var editCostInput = listItem.querySelector("input[type=text]");
               var labelItem = listItem.querySelector("label");
               var labelQuantity = listItem.querySelector("label");
               var labelCost = listItem.querySelector("label");
