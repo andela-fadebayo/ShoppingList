@@ -84,10 +84,10 @@ var ShoppingList = {
               var listItem = this.parentNode;
 
               var editItemInput = listItem.querySelector("input[type=text]");
-              var editQuantityInput = listItem.querySelector("input[type=text]");
+              var editQuantityInput = listItem.querySelector(".itemB");
               var editCostInput = listItem.querySelector("input[type=text]");
-              var labelItem = listItem.querySelector("label");
-              var labelQuantity = listItem.querySelector("label");
+              var labelItem = listItem.querySelector(".itemA");
+              var labelQuantity = listItem.querySelector(".itemB");
               var labelCost = listItem.querySelector("label");
               //include labels for quantity and cost here
 
@@ -122,6 +122,7 @@ var ShoppingList = {
                   ShoppingList.checkedOffHolder.appendChild(listItem);
                   ShoppingList.bindItemEvents(listItem, ShoppingList.itemsUnchecked);
                 },
+                
   itemsUnchecked: function () {
                     console.log("item unchecked...");
 

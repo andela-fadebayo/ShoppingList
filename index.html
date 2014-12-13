@@ -5,53 +5,60 @@
   <link rel="shortcut icon" href="images/shop_cart_icon.png" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width initial-scale=1" />
+  <link rel="stylesheet" href="styles/normalize.css" />
+  <link href='http://fonts.googleapis.com/css?family=Stalemate' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="styles/main.css" />
 </head>
 
 <body>
+
   <!-- div container to hold the app section -->
   <div id="main">
     <header>
       <h1>My Shopping List App</h1>
     </header>
-  
-    <div id="createList"> <!-- Add amount and quantity -->
-      <label for="new_item">Add new items to your shopping list...</label><br /><br />
-      <input id="newItem" type="text" placeholder="Enter a new item..." /><br /><br />
-      <input id="quantity" type="text" placeholder="quantity" /><br /><br />
-      <input id="cost" type="text" placeholder="cost" /><br /><br />
-      <button id="listBtn">Add Item</button>
-    </div>
 
-    <div id="items">
+    <div id="left">
+      <h3>Add new items to your shopping list...</h3>
+            <label for="newItem">Item:</label>
+            <input id="newItem" type="text" name="new_item" placeholder="Enter a new item..." /><br /><br />
+            <label for="quantity">Qty:</label>
+            <input id="quantity" type="text" name="quantity" placeholder="How many?" /><br /><br />
+            <label for="cost">Cost (<span>N</span>):</label>
+            <input id="cost" type="text" name="cost" placeholder="How much?" /><br /><br />
+            <button id="addItemButton">Add Item</button>
+    </div>
       
-      <h3>Items to buy</h3> <!--change to capital letters. All headers -->
+
+    <div id="center">
+            <h3>Items to buy...</h3> <!--change to capital letters. All headers -->
       
-      <ol id="itemsList"> <!--incomplete tasks-->
+            <ol id="itemsList"> <!--incomplete tasks-->
         
-        <li><input type="checkbox"> <label>Bread</label><label>3</label><label>N600</label> <input class="itemA" type="text"> <input class="itemB" type="text"> <input class="itemC" type="text"> <button class="edit">Edit</button> <button class="delete">Delete</button></li>
+              <li><input type="checkbox"> <label class="itemA">Bread</label><label class="itemB">3</label><label class="itemC"><span>N</span> 600</label><input class="itemA" type="text"><input class="itemB" type="text"><input class="itemC" type="text"><button class="edit">Edit</button><button class="delete">Delete</button></li>
 
-        <li class="editMode"> <input type="checkbox"> <label>Perfume</label> <label>2</label> <label>N3,000</label> <input type="text" value="Perfume"> <input type="text" value="2"> <input type="text" value="N3,000"> <button class="edit">Edit</button> <button class="delete">Delete</button></li>
+              <li class="editMode"><input type="checkbox"><label>Perfume</label><label>2</label><label><span>N</span> 3000</label><input type="text" class="itemA" value="Perfume"><input type="text" class="itemB" value="2"><input type="text" class="itemC" value="3000"><button class="edit">Edit</button><button class="delete">Delete</button></li>
 
-      </ol>
+            </ol>
     </div>
+    
 
-    <div id="checkedOff">
-      <h3>Checked off items</h3>
-      <ol id="checkedOffItems"> <!-- completed tasks -->
+    <div id="right">
+            <h3>Checked off items</h3>
+            <ol id="checkedOffItems"> <!-- completed tasks -->
         
-        <li><input type="checkbox" checked> <label>Samsung camera</label> <input type="text"> <button class="edit">Edit</button> <button class="delete">Delete</button></li>
+              <li><input type="checkbox" checked><label>Samsung camera</label><input type="text"><button class="edit">Edit</button><button class="delete">Delete</button></li>
       
-      </ol>
+            </ol>
     </div>
+    
 
-    <br class="clearfloat"/>
     <footer>
-      <p>Shopping List App | Fiyin Adebayo &copy; 2014</p>
+      <p>Shopping List App | Fiyin Adebayo | &copy; 2014</p>
     </footer>
   </div>
 
-  <script type="text/javascript" src="script/olp_shoppinglist.js"></script>
-  
+  <script type="text/javascript" src="scripts/shoppingList.js"></script>
+
 </body>
 </html>
