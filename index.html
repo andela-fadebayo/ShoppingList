@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Shopping List App | Fiyin Adebayo</title>
+  <title>My Shopping List | Fiyin Adebayo</title>
   <link rel="shortcut icon" href="images/shop_cart_icon.png" />
   <meta charset="utf-8">
   <link rel="stylesheet" href="styles/normalize.css" />
   <link href='http://fonts.googleapis.com/css?family=Stalemate' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,700|Dancing+Script:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="styles/main.css" />
   <link rel="stylesheet" href="styles/responsive.css" />
   <meta name="viewport" content="width=device-width initial-scale=1" />
@@ -16,53 +17,60 @@
   <!-- div container to hold the app section -->
   <div id="main">
     <header>
-      <img src="images/shop_cart_icon.png" alt="Shopping List Logo" width="80" height="80" /><span class="breakHead"></span>
-      <h1>My Shopping List App</h1>
+      <a href="index.html"><img src="images/shop_cart_icon.png" alt="Shopping List Logo" width="80" height="80" /></a><span class="breakHead"></span>
+      <h1>My Shopping List</h1>
+      <nav id="topNav">
+        <ul>
+          <li><a href="index.html" class="selected">Home</a></li>
+          <li><a href="http://andela-fadebayo.github.io/Exercises/calculator.html">Calculator</a></li>
+          <li><a href="http://andela-fadebayo.github.io/HotCold/index.html">HotCold</a></li>
+          <li><a href="http://www.github.com/andela-fadebayo">Portfolio</a></li>
+        </ul>
+      </nav>
     </header>
 
     <div id="left">
       <h3>Add new items to your shopping list...</h3>
-            <label for="newItem">Item:</label>
-            <input id="newItem" type="text" name="new_item" placeholder="Enter a new item..." /><br /><br />
-            <label for="quantity">Qty:</label>
-            <input id="quantity" type="text" name="quantity" placeholder="How many?" /><br /><br />
-            <label for="cost">Cost(<span>N</span>):</label>
-            <input id="cost" type="text" name="cost" placeholder="How much?" /><br /><br />
-            <button id="addItemButton">Add Item</button>
+        <label for="newItem">Item:</label>
+        <input id="newItem" type="text" name="new_item" placeholder="Enter a new item..." /><br /><br />
+        <label for="quantity">Quantity:</label>
+        <input id="quantity" type="text" name="quantity" placeholder="How many?" /><br /><br />
+        <label for="cost">Cost(<span>N</span>):</label>
+        <input id="cost" type="text" name="cost" placeholder="How much?" /><br /><br />
+        <button id="addItemButton">Add Item</button>
     </div>
       
 
     <div id="center">
-            <h3>Items to buy...</h3> <!--change to capital letters. All headers -->
+      <h3>Items to buy...</h3> <!--change to capital letters. All headers -->
       
-            <ol id="itemsList"> <!--incomplete tasks-->
+      <ol id="itemsList"> <!--incomplete tasks-->
         
-              <li><input type="checkbox"> <label class="itemTextA">Bread</label><label class="itemTextB">3</label><label class="itemTextC"><span>N</span> 600</label><span class="breakFirst"></span><input class="itemA" type="text"><input class="itemB" type="text"><input class="itemC" type="text"><span class="break"></span><button class="edit">Edit</button><button class="delete">Delete</button></li>
+        <li><input type="checkbox"> <label class="itemTextA">Bread</label><label class="itemTextB">3</label><label class="itemTextC"><span>N</span> 600</label><span class="breakFirst"></span><input class="itemA" type="text"><input class="itemB" type="text"><input class="itemC" type="text"><span class="break"></span><button class="edit">Edit</button><button class="delete">Delete</button></li>
 
-              <li class="editMode"><input type="checkbox"><label>Perfume</label><label>2</label><label><span>N</span> 3000</label><span class="breakFirst"></span><input type="text" class="itemA" value="Perfume"><input type="text" class="itemB" value="2"><input type="text" class="itemC" value="3000"><span class="break"></span><button class="edit">Edit</button><button class="delete">Delete</button></li>
+        <li class="editMode"><input type="checkbox"><label>Perfume</label><label>2</label><label><span>N</span> 3000</label><span class="breakFirst"></span><input type="text" class="itemA" value="Perfume"><input type="text" class="itemB" value="2"><input type="text" class="itemC" value="3000"><span class="break"></span><button class="edit">Edit</button><button class="delete">Delete</button></li>
 
-            </ol>
+      </ol>
     </div>
     
-
     <div id="right">
-            <h3>Checked off items</h3>
-            <ol id="checkedOffItems"> <!-- completed tasks -->
+      <h3>Checked off items</h3>
+      <ol id="checkedOffItems"> <!-- completed tasks -->
         
-              <li><input type="checkbox" checked><label>Samsung camera</label><span class="breakFirst"></span><input type="text" class="itemA"><span class="break"></span><button class="edit">Edit</button><button class="delete">Delete</button></li>
+        <li><input type="checkbox" checked><label>Samsung camera</label><span class="breakFirst"></span><input type="text" class="itemA"><span class="break"></span><button class="edit">Edit</button><button class="delete">Delete</button></li>
       
-            </ol>
+      </ol>
     </div>
     
 
-      <div>
-        <a href="mailto:fiyinsimeon@gmail.com"><img src="images/mail.png" alt="Mail Icon" class="socialIcon"></a>
-        <a href="http://twitter.com/ceemion"><img src="images/twitter-wrap.png" alt="Twitter Logo" class="socialIcon"></a>
-        <a href="http://facebook.com/fiyin.simeon"><img src="images/facebook-wrap.png" alt="Facebook Logo" class="socialIcon"></a>
+    <div>
+      <a href="mailto:fiyinsimeon@gmail.com" title="fiyinsimeon@gmail.com"><img src="images/mail.png" alt="Mail Icon" class="socialIcon"></a>
+      <a href="http://twitter.com/ceemion" title="@ceemion"><img src="images/twitter-wrap.png" alt="Twitter Logo" class="socialIcon"></a>
+      <a href="http://facebook.com/fiyin.simeon" title="fiyin.simeon"><img src="images/facebook-wrap.png" alt="Facebook Logo" class="socialIcon"></a>
     </div>
 
     <footer>
-      <p>Shopping List App  |  Fiyin Adebayo  |  &copy; 2014</p>
+      <p>Andela Shopping List App  |  Fiyin Adebayo  |  &copy; 2014</p>
     </footer>
   </div>
 

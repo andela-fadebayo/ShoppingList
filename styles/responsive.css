@@ -1,22 +1,55 @@
-/*media queries code for responsiveness of shopping cart app*/
+/*media queries code for responsiveness of shopping cart app
 
-@media screen and (min-width: 384px) {
+  CSS for Andela Project 4 - my Shopping List App with JavaScript
+  Fiyinfoluwa Adebayo
+  21-25th November, 2014
+  (revisited and restyled on 13-14th December, 2014)*/
+
+/*Styling for screen sizes less than 383px: very small phones*/
+@media screen and (max-width: 383px) {
+  #topNav li {
+    display: none;
+  }
+
+  #left input {
+    width: 12em;
+    height: 1.8em;
+  }
+}
+
+
+/*Styling for screen sizes greater than 384px and less than 659px: small phones, some ipad and tablets*/
+@media screen and (min-width: 384px) and (max-width: 659px) {
+
+  header h1 {
+    font-size: 2.94em;
+  }
 
   .breakFirst:before {
     content: "\000A";
     white-space: pre;
   }
+
+  #topNav li {
+    display: none;
+  }
 }
 
-@media screen and (min-width: 660px) {
+
+/*Styling for screen sizes greater than 660px and less than 1023px: some ipads and tablets, and other mobile devices*/
+@media screen and (min-width: 660px) and (max-width: 1023px) {
   
   header h1 {
-    font-size: 2.7em;
+    font-size: 3.01em;
   }
 
   header img {
     width: 120px;
     height: 120px;
+  }
+
+  #topNav {
+    display: none;
   }
 
   #left h3,
@@ -74,3 +107,94 @@
     font-size: 1.234em;
   }
 }
+
+
+/*Styling for screen sizes greater than 1024px: some tablets and desktop computers*/
+@media screen and (min-width: 1024px) {
+  .breakHead:before {
+    content: "";
+    white-space: pre;
+  }
+
+  #main header {
+    float: left;
+  }
+
+  #main header img {
+    float: left;
+    margin-left: 30px;
+    width: 130px;
+    height: 130px;
+  }
+
+  #main header h1 {
+    float: left;
+    font-size: 3.5em;
+    text-align: left;
+    padding-left: 50px;
+  }
+
+  #left {
+    float: left;
+    max-width: 48%;
+    margin: 20px 5px 10px 0;
+    left: 0;
+  }
+
+  #center {
+    float: right;
+    max-width: 48%;
+    margin: 20px 0 10px 5px;
+  }
+
+  #right {
+    clear: both;
+  }
+
+  #left h3,
+  #center h3,
+  #right h3 {
+    font-size: 1.24em;
+  }
+
+  #left label {
+    font-size: .84em;
+    float: left;
+    display: block;
+    width: 3em;
+    text-align: right;
+  }
+  
+  #left input {
+    margin-left: 20px;
+    width: 13em;
+    height: 1.8em;
+  }
+
+  #addItemButton {
+    width: 6em;
+  }
+
+  .itemA, 
+  .itemB, 
+  .itemC {
+    width: 7em;
+    height: 1.8em;
+  }
+
+  .socialIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .breakFirst:before {
+    content: "\000A";
+    white-space: pre;
+  }
+
+  footer p {
+    font-size: .956em;
+  }
+}
+
+/*The End*/
