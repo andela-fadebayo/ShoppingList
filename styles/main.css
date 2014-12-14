@@ -46,6 +46,7 @@ header h1 {
   padding: 3%;
   border-radius: 1em;
   line-height: 2em;
+  text-align: left;
 }
 
 #right {
@@ -53,13 +54,14 @@ header h1 {
   margin: 10px;
   padding: 3%;
   border-radius: 1em;
+  text-align: left;
 }
 
 /*Add Items*/
 #left h3,
 #center h3,
 #right h3 {
-  font-size: .74em;
+  font-size: .84em;
   text-align: left;
 }
 
@@ -77,7 +79,7 @@ header h1 {
 
 #left input {
   margin-left: 10px;
-  width: 10em;
+  width: 13em;
   height: 1.5em;
   border: 1px solid #ddd;
   border-radius: .534em;
@@ -122,6 +124,11 @@ header h1 {
   margin: 5px 5px;
 }
 
+#itemsList li,
+#checkedOffItems li {
+  margin-top: 20px;
+}
+
 #itemsList li label {
   margin-left: 10px;
 }
@@ -130,13 +137,24 @@ header h1 {
   text-decoration: line-through;
 }
 
-.itemA, .itemB, .itemC {
+.itemA, 
+.itemB, 
+.itemC {
   width: 8em;
   height: 2em;
   margin: 10px 0 0 5px;
+  border-radius: .534em;
+  outline: none;
+  border: 1px solid #ddd;
 }
 
-.itemC:after {
+.itemA:focus, 
+.itemB:focus, 
+.itemC:focus {
+  border: 1px solid #000;
+}
+
+.break:before {
   content: "\000A";
   white-space: pre;
 }
@@ -147,15 +165,25 @@ header h1 {
   margin-left: 10px;
 }
 
+.socialIcon {
+  width: 20px;
+  height: 20px;
+  margin: 5px 0 0 20px;
+}
+
 /*footer*/
 footer {
-  font-size: .756em;
   text-align: center;
-  padding: 2%;
-  margin: 20px 0 0 0;
+  padding: 1%;
+  margin: 10px 0 0 0;
   width: 100%;
   border: 1px solid maroon;
   background-color: #471B08;
-  color: #fff;
   border-radius: .5em;
+}
+
+footer p {
+  font-size: .756em;
+  color: #fff;
+  white-space: pre;
 }

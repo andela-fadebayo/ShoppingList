@@ -1,0 +1,76 @@
+/*media queries code for responsiveness of shopping cart app*/
+
+@media screen and (min-width: 384px) {
+
+  .breakFirst:before {
+    content: "\000A";
+    white-space: pre;
+  }
+}
+
+@media screen and (min-width: 660px) {
+  
+  header h1 {
+    font-size: 2.7em;
+  }
+
+  header img {
+    width: 120px;
+    height: 120px;
+  }
+
+  #left h3,
+  #center h3,
+  #right h3 {
+    font-size: 1.5em;
+    text-align: left;
+  }
+
+  #left label {
+    font-size: 1.2em;
+    width: 5em;
+  }
+
+  #left input {
+    width: 22em;
+    height: 2.5em;
+  }
+
+  .breakHead:before {
+    content: "";
+    white-space: pre;
+  }
+
+  .breakFirst:before {
+    content: "\000A";
+    white-space: pre;
+  }
+
+  #addItemButton,
+  #center #itemsList li button,
+  #right #checkedOffItems li button {
+    width: 8em;
+    height: 3em;
+  }
+
+  #addItemButton {
+    width: 16em;
+  }
+
+  .itemA, 
+  .itemB, 
+  .itemC {
+    width: 9em; 
+    height: 2.5em;
+    margin: 10px 0 10px 10px;
+  }
+
+  .socialIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  footer p {
+    font-size: 1.234em;
+  }
+}
