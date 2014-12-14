@@ -15,6 +15,13 @@
     width: 12em;
     height: 1.8em;
   }
+
+  #left h3,
+  #center h3,
+  #right h3 {
+    font-size: 1.2em;
+    text-align: left;
+  }
 }
 
 
@@ -32,6 +39,13 @@
 
   #topNav li {
     display: none;
+  }
+
+  #left h3,
+  #center h3,
+  #right h3 {
+    font-size: 1.356em;
+    text-align: left;
   }
 }
 
