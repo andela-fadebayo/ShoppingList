@@ -99,10 +99,6 @@ header h1 {
   text-align: right;
 }
 
-#left label span {
-  text-decoration: line-through;
-}
-
 #left input {
   margin-left: 10px;
   width: 13em;
@@ -111,6 +107,15 @@ header h1 {
   border-radius: .534em;
   padding-left: 5px;
   outline: none;
+}
+
+.itemTextC {
+  margin-left: 0;
+}
+
+.nairaSpan {
+  margin-left: 30px;
+  text-decoration: line-through;
 }
 
 #left input:focus {
