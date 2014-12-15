@@ -104,16 +104,84 @@ var shoppingList = {
              var newCostValue = shoppingList.itemCost.value;
 
              //validate inputs
+             if (newItemValue === "") {
+               shoppingList.status("Please enter an item to purchase");
+             }
+             else if (newCostValue === "") {
+               shoppingList.status("How much does '" + newItemValue + "' cost?")
+             }
+             else if (isNaN(newQuantityValue) || isNaN(newCostValue)) {
+               shoppingList.status("Quantity and Cost must be numbers!");
+             }
+             else {
+               shoppingList.status("");
+               //using the list item created, add a new item
+               var newListItem = shoppingList.createNewItem(newItemValue, newQuantityValue, newCostValue);
 
-             shoppingList.status("your inputs: " + newItemValue + " " + newQuantityValue + " " + newCostValue);
-             //using the list item created, add a new item
-             var newListItem = shoppingList.createNewItem(newItemValue, newQuantityValue, newCostValue);
+               //append the new list item to items list holder
+               shoppingList.itemsListHolder.appendChild(newListItem);
 
-             //append the new list item to items list holder
-             shoppingList.itemsListHolder.appendChild(newListItem);
+               //use the bind event function to bind this new list created to items list div
+               shoppingList.bindEvents(newListItem, shoppingList.itemsChecked);
 
-             //use the bind event function to bind 
-           } //end of addItem fxn
+               //clear all input field and status div
+               shoppingList.newItem.value = "";
+               shoppingList.itemQuantity.value = "";
+               shoppingList.itemCost.value = "";
+
+               shoppingList.status("You successfully added an item to you cart!");
+             } //end of validation else
+           }, //end of addItem fxn
+
+  editItem: function () {
+              console.log("edit button is clicked");
+            },
+
+  deleteItem: function () {
+                console.log("delete button is clicked");
+              },
+
+  bindEvents: function(tasksListItem, checkBoxEvents) {
+                //select tasksListItem's children
+                var checkBox = tasksListItem.querySelector("input[type=checkbox]");
+                var editButton = tasksListItem.querySelector("button.edit");
+                var deleteButton = tasksListItem.querySelector("button.delete");
+
+                //bind events to the edit and delete buttons
+                editButton.onclick = shoppingList.editItem;
+                deleteButton.onclick = shoppingList.deleteButton;
+                checkBox.onchange = checkBoxEvents;
+              },
+
+  itemsUnchecked: function () {
+                    //for items in itemsListHolder and have not been checked
+                    var listItem = this.parentNode;
+                    shoppingList.itemsListHolder.appendChild(listItem);
+                    shoppingList.bindEvents(listItem, shoppingList.itemsChecked);
+                  },
+
+  itemsChecked: function () {
+                  //for items in red that have been checked
+                  var listItem = this.parentNode;
+                  shoppingList.checkedOffHolder.appendChild(listItem);
+                  shoppingList.bindEvents(listItem, shoppingList.itemsUnchecked);
+                },
+
+  cycleItemsList: function () {
+                    //cycle over items list (for incompleted tasks)
+                    for (var i = 0; shoppingList.itemsListHolder.children.length; i++) {
+                      //bind events to the items list children
+                      shoppingList.bindEvents(shoppingList.itemsListHolder.children[i], shoppingList.itemsChecked);
+                    }
+                  },
+
+  cycleCheckedOff: function () {
+                     //cycle over items in red that have been checked off (completed tasks)
+                     for (var i = 0; shoppingList.checkedOffHolder.children.length; i++) {
+                       //bind events to the checked off list
+                       shoppingList.bindEvents(shoppingList.checkedOffHolder.children[i], shoppingList.itemsUnchecked);
+                     }
+                   }
 
 }; //end of shopping list object
 
