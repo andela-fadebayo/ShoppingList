@@ -90,7 +90,7 @@ header h1 {
 #left h3,
 #center h3,
 #right h3 {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Dancing Script';
   font-size: .84em;
   text-align: left;
 }
@@ -181,6 +181,7 @@ header h1 {
   border-radius: .534em;
   outline: none;
   border: 1px solid #ddd;
+  display: none;
 }
 
 .itemA:focus, 
@@ -194,7 +195,8 @@ header h1 {
   white-space: pre;
 }
 
-#checkedOffItems li label {
+#checkedOffItems li label,
+#checkedOffItems li span {
   text-decoration: line-through;
   color: #ff0000;
   margin-left: 10px;

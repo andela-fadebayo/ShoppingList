@@ -24,13 +24,13 @@ var shoppingList = {
   checkedOffHolder: document.getElementById("checkedOffItems"),
 
   //define all functions
-
   status: function (message) {
             var getStatus = document.getElementById("status");
             getStatus.innerHTML = message;
           },
 
   createNewItem: function (item, quantity, cost) {
+                   
                    //create a new list li item
                    var listItem = document.createElement("li");
                    var checkBox = document.createElement("input");
@@ -68,6 +68,9 @@ var shoppingList = {
                    editItemInput.className = "itemA";
                    editQuantityInput.className = "itemB";
                    editCostInput.className = "itemC";
+                   labelItem.className = "itemTextA";
+                   labelQuantity.className = "itemTextB";
+                   labelCost.className = "itemTextC";
 
                    breakSpan.className = "breakFirst";
                    nairaSpan.className = "nairaSpan";
@@ -93,26 +96,25 @@ var shoppingList = {
 
                    //return list item out of this function
                    return listItem;
-                 }, //end of createNewItem fxn
+                 }, 
 
   addItem: function () {
-             console.log("add item button clicked");
 
              //collect the values of items, their quantity and cost
              var newItemValue = shoppingList.newItem.value;
              var newQuantityValue = shoppingList.itemQuantity.value;
-             var newCostValue = shoppingList.itemCost.value;
+             var newCostValue = parseInt(newQuantityValue, 10) * parseInt(shoppingList.itemCost.value, 10);
 
              //validate inputs
              if (newItemValue === "") {
                shoppingList.status("Please enter an item to purchase");
              }
-             else if (newCostValue === "") {
+             else if (newCostValue === "" || newQuantityValue === "") {
                shoppingList.status("How much does '" + newItemValue + "' cost?")
              }
              else if (isNaN(newQuantityValue) || isNaN(newCostValue)) {
                shoppingList.status("Quantity and Cost must be numbers!");
-             }
+             } 
              else {
                shoppingList.status("");
                //using the list item created, add a new item
@@ -129,19 +131,78 @@ var shoppingList = {
                shoppingList.itemQuantity.value = "";
                shoppingList.itemCost.value = "";
 
-               shoppingList.status("You successfully added an item to you cart!");
-             } //end of validation else
-           }, //end of addItem fxn
+               shoppingList.status("You successfully added an item to your cart!");
+             } 
+           },
 
   editItem: function () {
-              console.log("edit button is clicked");
+              var listItem = this.parentNode;
+
+              var editItemInput = listItem.querySelector(".itemA");
+              var editQuantityInput = listItem.querySelector(".itemB");
+              var editCostInput = listItem.querySelector(".itemC");
+
+              var labelItem = listItem.querySelector(".itemTextA");
+              var labelQuantity = listItem.querySelector(".itemTextB");
+              var labelCost = listItem.querySelector(".itemTextC");
+
+              var containsClass = listItem.classList.contains("editMode");
+
+              //select edit button
+              var editButton = listItem.querySelector("button.edit");
+
+              //if the class of the parenet is .editMode
+              if(containsClass) {
+                //switch from .editMode
+                //label text becomes the input's value
+                editButton.innerText = "Edit";
+                
+                //hide the input field when done editing
+                editItemInput.style.display = "none";
+                editQuantityInput.style.display = "none";
+                editCostInput.style.display = "none";
+
+                //multiply quantity and cost values
+                var quantityInput = editQuantityInput.value;
+                var costAndQuantity = parseInt(quantityInput, 10) * parseInt(editCostInput.value, 10);
+
+                //save edit inputs in label text
+                labelItem.innerText = editItemInput.value;
+                labelQuantity.innerText = quantityInput;
+                labelCost.innerText = costAndQuantity;
+              }
+              else {
+                //switch to .editMode
+                //input value becomes the label's text#
+                editButton.innerText = "Save";
+
+                //show the input field when done editing
+                editItemInput.style.display = "block";
+                editQuantityInput.style.display = "block";
+                editCostInput.style.display = "block";
+
+                //grab label text and place in edit inputs for editing
+                editItemInput.value = labelItem.innerText;
+                editQuantityInput.value = labelQuantity.innerText;
+                editCostInput.value = labelCost.innerText;
+              }
+
+              //toggle to and from .editMode on the list item
+              listItem.classList.toggle("editMode");
             },
 
   deleteItem: function () {
-                console.log("delete button is clicked");
+
+                //select item and ordered parent list
+                var listItem = this.parentNode;
+                var ol = listItem.parentNode;
+
+                //remove the parent list item from the ol
+                ol.removeChild(listItem);
               },
 
   bindEvents: function(tasksListItem, checkBoxEvents) {
+                
                 //select tasksListItem's children
                 var checkBox = tasksListItem.querySelector("input[type=checkbox]");
                 var editButton = tasksListItem.querySelector("button.edit");
@@ -149,7 +210,7 @@ var shoppingList = {
 
                 //bind events to the edit and delete buttons
                 editButton.onclick = shoppingList.editItem;
-                deleteButton.onclick = shoppingList.deleteButton;
+                deleteButton.onclick = shoppingList.deleteItem;
                 checkBox.onchange = checkBoxEvents;
               },
 
@@ -165,24 +226,20 @@ var shoppingList = {
                   var listItem = this.parentNode;
                   shoppingList.checkedOffHolder.appendChild(listItem);
                   shoppingList.bindEvents(listItem, shoppingList.itemsUnchecked);
-                },
+                }
 
-  cycleItemsList: function () {
-                    //cycle over items list (for incompleted tasks)
-                    for (var i = 0; shoppingList.itemsListHolder.children.length; i++) {
-                      //bind events to the items list children
-                      shoppingList.bindEvents(shoppingList.itemsListHolder.children[i], shoppingList.itemsChecked);
-                    }
-                  },
-
-  cycleCheckedOff: function () {
-                     //cycle over items in red that have been checked off (completed tasks)
-                     for (var i = 0; shoppingList.checkedOffHolder.children.length; i++) {
-                       //bind events to the checked off list
-                       shoppingList.bindEvents(shoppingList.checkedOffHolder.children[i], shoppingList.itemsUnchecked);
-                     }
-                   }
-
-}; //end of shopping list object
+};
 
 shoppingList.addItemButton.addEventListener("click", shoppingList.addItem);
+
+//cycle over items list holder ol list
+for (var i = 0; i < shoppingList.itemsListHolder.children.length; i++) {
+                      //bind events to the items list children
+                      shoppingList.bindEvents(shoppingList.itemsListHolder.children[i], shoppingList.itemsChecked);
+                    };
+
+//cycle over checked list items ol list
+for (var i = 0; i < shoppingList.checkedOffHolder.children.length; i++) {
+                       //bind events to the checked off list
+                       shoppingList.bindEvents(shoppingList.checkedOffHolder.children[i], shoppingList.itemsUnchecked);
+                     };
